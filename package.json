@@ -1,0 +1,23 @@
+{
+  "name": "ycb-lru",
+  "version": "0.0.0",
+  "description": "ycb with a cache",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.corp.yahoo.com:matuzak/ycb-lru.git"
+  },
+  "keywords": [
+    "ycb",
+    "lru",
+    "cache"
+  ],
+  "author": "Michael Matuzak",
+  "dependencies": {
+    "ycb": "~1.1.0",
+    "lru-cache": "~2.5.0"
+  }
+}
