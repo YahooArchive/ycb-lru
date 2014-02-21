@@ -15,6 +15,8 @@ function YcbLru(config) {
     this.ycb = new Ycb(config, {});
 }
 
+// TODO: forEaching through objects  probably isn't guarenteed order
+// possibly push to array and sort key/value pairs before joining them
 YcbLru.prototype.generateCacheKey = function (context) {
     var key = '';
     var setKey = function (k) {
