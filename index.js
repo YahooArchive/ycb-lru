@@ -16,9 +16,15 @@ function YcbLru(config) {
 }
 
 YcbLru.prototype.read = function (context) {
-    var key = JSON.stringify(context);
     var cache = this.cache;
+    var key = '';
     var config;
+
+    var generateCacheKey = function (k) {
+        key += k + ':' + context[k];
+    };
+
+    Object.keys(context).forEach(generateCacheKey);
 
     if (cache.has(key)) {
         config = cache.get(key);
