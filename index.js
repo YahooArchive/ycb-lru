@@ -15,16 +15,20 @@ function YcbLru(config) {
     this.ycb = new Ycb(config, {});
 }
 
-YcbLru.prototype.read = function (context) {
-    var cache = this.cache;
+YcbLru.prototype.generateCacheKey = function (context) {
     var key = '';
-    var config;
-
-    var generateCacheKey = function (k) {
-        key += k + ':' + context[k];
+    var setKey = function (k) {
+        key += k + ':' + context[k] + ':';
     };
 
-    Object.keys(context).forEach(generateCacheKey);
+    Object.keys(context).forEach(setKey);
+    return key;
+};
+
+YcbLru.prototype.read = function (context) {
+    var cache = this.cache;
+    var key = this.generateCacheKey(context);
+    var config;
 
     if (cache.has(key)) {
         config = cache.get(key);

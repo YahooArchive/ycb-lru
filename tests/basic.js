@@ -2,12 +2,12 @@
 var test = require('tap').test;
 var Ycb = require('../');
 
-test('read config', function (t) {
-    var dimensions = require('./dimensions');
-    var appConfig = require('./application');
-    var settings = dimensions.concat(appConfig);
-    var ycb = Ycb(settings);
+var dimensions = require('./dimensions');
+var appConfig = require('./application');
+var settings = dimensions.concat(appConfig);
 
+test('read config', function (t) {
+    var ycb = Ycb(settings);
     var config = ycb.read({});
     t.equal(8666, config.appPort);
 
@@ -20,9 +20,20 @@ test('read config', function (t) {
     config = ycb.read({environment: 'prod', device: 'smartphone'});
     t.equal(8888, config.appPort);
 
-    // this should run through the cache and can be confirmed through code coverage
+    // dupe test to trigger cache
     config = ycb.read({});
     t.equal(8666, config.appPort);
 
+    ycb = null;
+    t.end();
+});
+
+test('cache key', function (t) {
+    var ycb = Ycb(settings);
+    var key = ycb.generateCacheKey({});
+    t.equal('', key);
+
+    key = ycb.generateCacheKey({environment: 'prod', device: 'smartphone'});
+    t.equal(key, 'environment:prod:device:smartphone:');
     t.end();
 });
