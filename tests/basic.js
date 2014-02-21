@@ -19,5 +19,9 @@ test('read config', function (t) {
     config = ycb.read({environment: 'prod', device: 'smartphone'});
     t.equal(8888, config.appPort);
 
+    // this should run through the cache and can be confirmed through code coverage
+    config = ycb.read({});
+    t.equal(8666, config.appPort);
+
     t.end();
 });
