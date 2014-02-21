@@ -9,20 +9,20 @@ var settings = dimensions.concat(appConfig);
 test('read config', function (t) {
     var ycb = Ycb(settings);
     var config = ycb.read({});
-    t.equal(8666, config.appPort);
+    t.equal(config.appPort, 8666);
 
     config = ycb.read({environment: 'prod'});
-    t.equal(80, config.appPort);
+    t.equal(config.appPort, 80);
 
     config = ycb.read({device: 'desktop'});
-    t.equal(8080, config.appPort);
+    t.equal(config.appPort, 8080);
 
     config = ycb.read({environment: 'prod', device: 'smartphone'});
-    t.equal(8888, config.appPort);
+    t.equal(config.appPort, 8888);
 
     // dupe test to trigger cache
     config = ycb.read({});
-    t.equal(8666, config.appPort);
+    t.equal(config.appPort, 8666);
 
     ycb = null;
     t.end();
