@@ -1,3 +1,4 @@
+/*jslint node: true, nomen: true, newcap: true, vars: true */
 var test = require('tap').test;
 var Ycb = require('../');
 
