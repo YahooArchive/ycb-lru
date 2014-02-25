@@ -1,6 +1,6 @@
 {
   "name": "ycb-lru",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "ycb with a cache",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.corp.yahoo.com:matuzak/ycb-lru.git"
+    "url": "git@github.com:yahoo/ycb-lru.git"
   },
   "keywords": [
     "ycb",
