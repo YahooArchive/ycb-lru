@@ -1,3 +1,9 @@
+/*
+ * Copyright 2014 Yahoo! Inc. All rights reserved.
+ * Copyrights licensed under the BSD License.
+ * See the accompanying LICENSE file for terms.
+ */
+
 /*jslint node: true, nomen: true, newcap: true, vars: true */
 var test = require('tap').test;
 var Ycb = require('../');

@@ -1,7 +1,12 @@
+/*
+ * Copyright 2014 Yahoo! Inc. All rights reserved.
+ * Copyrights licensed under the BSD License.
+ * See the accompanying LICENSE file for terms.
+ */
+
 /*jslint node: true, nomen: true, vars: true */
 var LRU = require('lru-cache');
 var Ycb = require('ycb').Ycb;
-var LRU = require('lru-cache');
 var options = {
     max: 200
 };
