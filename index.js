@@ -20,16 +20,17 @@ function YcbLru(config) {
     this.ycb = new Ycb(config, {});
 }
 
-// TODO: forEaching through objects  probably isn't guarenteed order
-// possibly push to array and sort key/value pairs before joining them
 YcbLru.prototype.generateCacheKey = function (context) {
-    var key = '';
-    var setKey = function (k) {
-        key += k + ':' + context[k] + ':';
+    var keys = [];
+    var makeKeyList = function (k) {
+        var key = '';
+        key += k + ':' + context[k];
+        keys.push(key);
     };
 
-    Object.keys(context).forEach(setKey);
-    return key;
+    Object.keys(context).forEach(makeKeyList);
+
+    return keys.sort().join(':');
 };
 
 YcbLru.prototype.read = function (context) {

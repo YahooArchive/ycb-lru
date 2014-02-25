@@ -40,6 +40,6 @@ test('cache key', function (t) {
     t.equal('', key);
 
     key = ycb.generateCacheKey({environment: 'prod', device: 'smartphone'});
-    t.equal(key, 'environment:prod:device:smartphone:');
+    t.equal(key, 'device:smartphone:environment:prod');
     t.end();
 });
