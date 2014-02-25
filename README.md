@@ -1,6 +1,8 @@
 ycb-lru
 =======
 
+[![Build Status](https://travis-ci.org/yahoo/ycb-lru.png?branch=master)](https://travis-ci.org/yahoo/ycb-lru)
+
 This allows you to use `ycb` and automatically caches the results of reads that you have already done in an LRU cache.
 
 ## Install
