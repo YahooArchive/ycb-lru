@@ -1,10 +1,10 @@
 {
   "name": "ycb-lru",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ycb with a cache",
   "main": "index.js",
   "scripts": {
-    "test": "istanbul cover --dir ${COVERAGE_DIR:-coverage} tests/*.js"
+    "test": "tap tests/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,6 @@
     "lru-cache": "~2.5.0"
   },
   "devDependencies": {
-    "tap": "~0.4.8",
-    "istanbul": "~0.2.4"
+    "tap": "~0.4.8"
   }
 }
